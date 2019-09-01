@@ -1,6 +1,14 @@
 package stickman.model;
 
 public class EntityImpl implements Entity {
+    double xPos;
+    double yPos;
+    double height;
+    double width;
+    Layer layer;
+    public EntityImpl() {
+
+    }
     @Override
     public String getImagePath() {
         return null;

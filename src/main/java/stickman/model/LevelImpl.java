@@ -10,7 +10,17 @@ public class LevelImpl implements Level {
     private double heroX;
 
     public LevelImpl (double height, double width, double floorHeight, double heroX) {
+        this.height = height;
+        this.width = width;
+        this.floorHeight = floorHeight;
+        this.heroX = heroX;
+    }
 
+    public LevelImpl (double heroX) {
+        this.height = 400;
+        this.width = 640;
+        this.floorHeight = 0;
+        this.heroX = heroX;
     }
 
     @Override
@@ -30,7 +40,6 @@ public class LevelImpl implements Level {
 
     @Override
     public void tick() {
-
     }
 
     @Override
