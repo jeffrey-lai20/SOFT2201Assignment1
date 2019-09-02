@@ -24,7 +24,7 @@ public class LevelImpl implements Level {
         this.floorHeight = 250;
         this.heroX = heroX;
         List<Entity> ent = new ArrayList<Entity> ();
-        Entity hero = new EntityImpl();
+        Entity hero = new EntityImpl(heroX, floorHeight+50);
         ent.add(hero);
         this.entities = ent;
     }
@@ -48,6 +48,7 @@ public class LevelImpl implements Level {
     public void tick() {
         //This is the way the view tells te model to update - it is the trigger that is sent to the model
         //each frame. The level should react to this event.
+
     }
 
     @Override

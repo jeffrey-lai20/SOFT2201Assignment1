@@ -13,9 +13,16 @@ public class EntityImpl implements Entity {
         this.height = 0;
         this.width = 0;
     }
+
+    public EntityImpl (double xPos, double yPos) {
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.height = 0;
+        this.width = 0;
+    }
     @Override
     public String getImagePath() {
-        return "file:resources/ch_stand1.png";
+        return "ch_stand1.png";
     }
 
     @Override
