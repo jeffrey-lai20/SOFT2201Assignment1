@@ -1,6 +1,7 @@
 package stickman.model;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class LevelImpl implements Level {
 
@@ -8,6 +9,7 @@ public class LevelImpl implements Level {
     private double width;
     private double floorHeight;
     private double heroX;
+    private List<Entity> entities;
 
     public LevelImpl (double height, double width, double floorHeight, double heroX) {
         this.height = height;
@@ -19,13 +21,17 @@ public class LevelImpl implements Level {
     public LevelImpl (double heroX) {
         this.height = 400;
         this.width = 640;
-        this.floorHeight = 0;
+        this.floorHeight = 250;
         this.heroX = heroX;
+        List<Entity> ent = new ArrayList<Entity> ();
+        Entity hero = new EntityImpl();
+        ent.add(hero);
+        this.entities = ent;
     }
 
     @Override
     public List<Entity> getEntities() {
-        return null;
+        return this.entities;
     }
 
     @Override
@@ -40,6 +46,8 @@ public class LevelImpl implements Level {
 
     @Override
     public void tick() {
+        //This is the way the view tells te model to update - it is the trigger that is sent to the model
+        //each frame. The level should react to this event.
     }
 
     @Override

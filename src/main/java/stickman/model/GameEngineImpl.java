@@ -6,7 +6,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.*;
 
-public class GameEngineImpl implements stickman.model.GameEngine {
+public class GameEngineImpl implements GameEngine {
 
     private Level currentLevel;
     private Double xPos;
@@ -32,10 +32,10 @@ public class GameEngineImpl implements stickman.model.GameEngine {
                 System.err.println("Unexpected negative value from JSON file found.");
                 System.exit(1);
             }
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        startLevel();
     }
 
     @Override
@@ -45,12 +45,12 @@ public class GameEngineImpl implements stickman.model.GameEngine {
 
     @Override
     public void startLevel() {
-        Level start = new LevelImpl(xPos);
-
+        this.currentLevel = new LevelImpl(xPos);
     }
 
     @Override
     public boolean jump() {
+
         return false;
     }
 

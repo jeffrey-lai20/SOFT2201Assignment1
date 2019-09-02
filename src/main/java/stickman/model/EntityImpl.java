@@ -6,36 +6,41 @@ public class EntityImpl implements Entity {
     double height;
     double width;
     Layer layer;
-    public EntityImpl() {
 
+    public EntityImpl() {
+        this.xPos = 0;
+        this.yPos = 0;
+        this.height = 0;
+        this.width = 0;
     }
     @Override
     public String getImagePath() {
-        return null;
+        return "file:resources/ch_stand1.png";
     }
 
     @Override
     public double getXPos() {
-        return 0;
+        return this.xPos;
     }
 
     @Override
     public double getYPos() {
-        return 0;
+        return this.yPos;
     }
 
     @Override
     public double getHeight() {
-        return 0;
+        return this.height;
     }
 
     @Override
     public double getWidth() {
-        return 0;
+        return this.width;
     }
 
     @Override
     public Layer getLayer() {
-        return null;
+        this.layer = Layer.FOREGROUND;
+        return this.layer;
     }
 }
