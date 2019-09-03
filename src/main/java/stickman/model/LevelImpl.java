@@ -19,14 +19,19 @@ public class LevelImpl implements Level {
     }
 
     public LevelImpl (double heroX) {
-        this.height = 400;
+        this.height = 300;
         this.width = 640;
-        this.floorHeight = 250;
+        this.floorHeight = 300;
         this.heroX = heroX;
-        List<Entity> ent = new ArrayList<Entity> ();
-        Entity hero = new EntityImpl(heroX, floorHeight+50);
-        ent.add(hero);
-        this.entities = ent;
+        this.entities = new ArrayList<Entity> ();
+
+        Entity hero = new EntityImpl("Hero", this.heroX, this.floorHeight-35);
+        entities.add(0, hero);
+        Entity cloud = new EntityImpl("Cloud1", 150, this.height-200);
+        Entity cloud2 = new EntityImpl("Cloud2", 470, this.height-230);
+        entities.add(1, cloud);
+        entities.add(2, cloud2);
+
     }
 
     @Override
@@ -46,9 +51,20 @@ public class LevelImpl implements Level {
 
     @Override
     public void tick() {
-        //This is the way the view tells te model to update - it is the trigger that is sent to the model
+                //This is the way the view tells te model to update - it is the trigger that is sent to the model
         //each frame. The level should react to this event.
+        this.height = 300;
+        this.width = 640;
+        this.floorHeight = 300;
+        this.heroX = heroX;
+        this.entities = new ArrayList<Entity> ();
 
+        Entity hero = new EntityImpl("Hero", this.heroX, this.floorHeight-35);
+        entities.add(0, hero);
+        Entity cloud = new EntityImpl("Cloud1", 150, this.height-200);
+        Entity cloud2 = new EntityImpl("Cloud2", 470, this.height-230);
+        entities.add(1, cloud);
+        entities.add(2, cloud2);
     }
 
     @Override
@@ -63,21 +79,32 @@ public class LevelImpl implements Level {
 
     @Override
     public boolean jump() {
-        return false;
+
+        Entity hero = new EntityImpl("Hero", this.heroX, this.floorHeight-40);
+        this.entities.add(0,hero);
+        return true;
     }
 
     @Override
     public boolean moveLeft() {
-        return false;
+        this.heroX = this.heroX - 5;
+        Entity hero = new EntityImpl("Hero", this.heroX, this.floorHeight-35);
+//        this.entities.get(0).setDel();
+        this.entities.add(0,hero);
+        return true;
     }
 
     @Override
     public boolean moveRight() {
-        return false;
+        this.heroX = this.heroX + 5;
+        Entity hero = new EntityImpl("Hero", this.heroX, this.floorHeight-35);
+        this.entities.add(0,hero);
+        return true;
     }
 
     @Override
     public boolean stopMoving() {
-        return false;
+
+        return true;
     }
 }

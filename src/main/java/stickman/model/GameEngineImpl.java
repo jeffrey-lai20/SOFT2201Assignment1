@@ -50,27 +50,30 @@ public class GameEngineImpl implements GameEngine {
 
     @Override
     public boolean jump() {
-
-        return false;
+        this.currentLevel.jump();
+        return true;
     }
 
     @Override
     public boolean moveLeft() {
-        return false;
+        this.currentLevel.moveLeft();
+        return true;
     }
 
     @Override
     public boolean moveRight() {
-        return false;
+        this.currentLevel.moveRight();
+        return true;
     }
 
     @Override
     public boolean stopMoving() {
-        return false;
+        this.currentLevel.stopMoving();
+        return true;
     }
 
     @Override
     public void tick() {
-
+    this.currentLevel.tick();
     }
 }
