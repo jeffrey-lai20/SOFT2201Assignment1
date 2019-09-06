@@ -3,7 +3,7 @@
   "stickmanSize": "normal",
   "_stickmanSizeComment": "Your main character can be tiny, normal, large, or giant. What pixel dimensions these match can be up to you.",
   "stickmanPos": {
-    "x": 100.0
+    "x": 20.0
   },
   "_stickmanPosComment": "Stickman should start at the x position indicated, with their y position being on your 'floor'. This must be a positive double.",
   "cloudVelocity": 3.2,
