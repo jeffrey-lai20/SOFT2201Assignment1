@@ -13,7 +13,7 @@ public class GameEngineImpl implements GameEngine {
     private Double cloudVelocity;
     private String stickmanSize;
 
-    public GameEngineImpl(String jsonFile) throws IOException, ParseException {
+    public GameEngineImpl(String jsonFile) {
         JSONParser parser = new JSONParser();
         try {
             Object arrayObj = parser.parse(new InputStreamReader(new FileInputStream(jsonFile)));
@@ -35,6 +35,8 @@ public class GameEngineImpl implements GameEngine {
                 System.exit(1);
             }
         } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         startLevel();

@@ -86,27 +86,27 @@ public class LevelImpl implements Level {
         if (left && entities.get(0).getXPos() <= 0 || left && entities.get(0).getXPos() == 280) {
 //            this.cloudVelocity -= 2;
 
-            cloud1x += 2;
-            cloud2x += 2;
+            cloud1x += 1;
+            cloud2x += 1;
         } else if (right && entities.get(0).getXPos() >= 400) {
 //            this.cloudVelocity += 2;
-            cloud1x -= 2;
-            cloud2x -= 2;
+            cloud1x -= 1;
+            cloud2x -= 1;
         }
         Entity cloud = new EntityImpl("Cloud1", this.cloud1x, this.height - 200, size);
         Entity cloud2 = new EntityImpl("Cloud2", this.cloud2x, this.height - 230, size);
         if (left && entities.get(0).getXPos() > 0) {
-            this.heroX -=2;
-            if (this.entities.get(0).getXPos() > 278) {
-                if (this.heroX == 278) {
+            this.heroX -=1;
+            if (this.entities.get(0).getXPos() > 279) {
+                if (this.heroX == 279) {
 
-                    this.heroX += 2;
+                    this.heroX += 1;
                 }
             }
 
         }
         if (right && entities.get(0).getXPos() < 400) {
-            this.heroX += 2;
+            this.heroX += 1;
         }
         if (jump) {
             if (this.floorHeight < 300-size*1.2) {

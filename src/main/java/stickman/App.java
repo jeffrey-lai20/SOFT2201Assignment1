@@ -25,17 +25,15 @@ public class App extends Application {
             throw new IllegalStateException("You must be running Java 11+. You won't ever see this exception though" +
                     " as your code will fail to compile on Java 10 and below.");
         }
-//        try {
-            GameEngine model = new GameEngineImpl("src/main/resources/example.json");
-            GameWindow window = new GameWindow(model, 640, 400);
-            window.run();
-            primaryStage.setTitle("Stickman");
-            primaryStage.setScene(window.getScene());
-            primaryStage.show();
 
-            window.run();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        GameEngine model = new GameEngineImpl("src/main/resources/example.json");
+        GameWindow window = new GameWindow(model, 640, 400);
+        window.run();
+
+        primaryStage.setTitle("Stickman");
+        primaryStage.setScene(window.getScene());
+        primaryStage.show();
+
+        window.run();
     }
 }
