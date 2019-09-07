@@ -11,13 +11,14 @@ public class GameEngineImpl implements GameEngine {
     private Level currentLevel;
     private Double xPos;
     private Double cloudVelocity;
+    private String stickmanSize;
 
     public GameEngineImpl(String jsonFile) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         try {
             Object arrayObj = parser.parse(new InputStreamReader(new FileInputStream(jsonFile)));
             JSONObject stickman = (JSONObject) arrayObj;
-            String stickmanSize = (String) stickman.get("stickmanSize");
+            this.stickmanSize = (String) stickman.get("stickmanSize");
             JSONObject stickmanPos = (JSONObject) stickman.get("stickmanPos");
             this.xPos = (Double) stickmanPos.get("x");
             this.cloudVelocity = (Double) stickman.get("cloudVelocity");
@@ -46,7 +47,7 @@ public class GameEngineImpl implements GameEngine {
 
     @Override
     public void startLevel() {
-        this.currentLevel = new LevelImpl(xPos, cloudVelocity);
+        this.currentLevel = new LevelImpl(xPos, cloudVelocity, stickmanSize);
     }
 
     @Override

@@ -2,12 +2,12 @@ package stickman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.json.simple.parser.ParseException;
 import stickman.model.GameEngine;
 import stickman.model.GameEngineImpl;
 import stickman.view.GameWindow;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Map;
 
 public class App extends Application {
@@ -17,7 +17,7 @@ public class App extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException, ParseException {
         Map<String, String> params = getParameters().getNamed();
 
         String s = "Java 11 sanity check";
@@ -25,8 +25,8 @@ public class App extends Application {
             throw new IllegalStateException("You must be running Java 11+. You won't ever see this exception though" +
                     " as your code will fail to compile on Java 10 and below.");
         }
-        try {
-            GameEngine model = new GameEngineImpl("/home/jeffrey/IdeaProjects/Soft2201_Assignment1/src/main/resources/example.json");
+//        try {
+            GameEngine model = new GameEngineImpl("src/main/resources/example.json");
             GameWindow window = new GameWindow(model, 640, 400);
             window.run();
             primaryStage.setTitle("Stickman");
@@ -34,8 +34,8 @@ public class App extends Application {
             primaryStage.show();
 
             window.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }

@@ -10,13 +10,15 @@ public class EntityImpl implements Entity {
     Layer layer;
 
 
-    public EntityImpl (String entityName, double xPos, double yPos) {
+
+
+    public EntityImpl (String entityName, double xPos, double yPos, double size) {
         this.entityName = entityName;
         this.xPos = xPos;
         this.yPos = yPos;
         if (entityName.equals("Hero")) {
-            this.height = 35;
-            this.width = 0;
+            this.height = size;
+            this.width = size;
         } else if (entityName.contains("Cloud")) {
             this.height = 0;
             this.width = 0;
