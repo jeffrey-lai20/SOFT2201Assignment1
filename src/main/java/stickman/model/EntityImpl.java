@@ -1,16 +1,12 @@
 package stickman.model;
 
 public class EntityImpl implements Entity {
-    String entityName;
-    boolean del = false;
-    double xPos;
-    double yPos;
-    double height;
-    double width;
-    Layer layer;
-
-
-
+    private String entityName;
+    private double xPos;
+    private double yPos;
+    private double height;
+    private double width;
+    private Layer layer;
 
     public EntityImpl (String entityName, double xPos, double yPos, double size) {
         this.entityName = entityName;
@@ -34,7 +30,6 @@ public class EntityImpl implements Entity {
              return "cloud_2.png";
          }
         return null;
-
     }
 
     @Override
@@ -62,6 +57,4 @@ public class EntityImpl implements Entity {
         this.layer = Layer.FOREGROUND;
         return this.layer;
     }
-
-
 }

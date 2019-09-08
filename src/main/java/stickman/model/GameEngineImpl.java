@@ -3,7 +3,6 @@ package stickman.model;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.*;
 
 public class GameEngineImpl implements GameEngine {
@@ -22,7 +21,6 @@ public class GameEngineImpl implements GameEngine {
             JSONObject stickmanPos = (JSONObject) stickman.get("stickmanPos");
             this.xPos = (Double) stickmanPos.get("x");
             this.cloudVelocity = (Double) stickman.get("cloudVelocity");
-
 
             if (!(stickmanSize.equals("tiny") || stickmanSize.equals("normal") ||
                 stickmanSize.equals("large") || stickmanSize.equals("giant"))) {

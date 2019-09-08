@@ -40,8 +40,8 @@ class KeyboardInputHandler{
         if (keyEvent.getCode().equals(KeyCode.UP)) {
             if (model.jump()) {
                 MediaPlayer jumpPlayer = sounds.get("jump");
-//                jumpPlayer.stop();
-//                jumpPlayer.play();
+                jumpPlayer.stop();
+                jumpPlayer.play();
             }
         }
 
