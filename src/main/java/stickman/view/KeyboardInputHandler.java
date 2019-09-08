@@ -12,6 +12,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Handles the input from keyboard for movement of the hero.
+ */
 class KeyboardInputHandler{
     private final GameEngine model;
     private boolean left = false;
@@ -20,6 +23,10 @@ class KeyboardInputHandler{
 
     private Map<String, MediaPlayer> sounds = new HashMap<>();
 
+    /** Constructor for KeyboardInputHandler.
+     * Sets values for necessary attributes and includes a sound file.
+     * @param model
+     */
     KeyboardInputHandler(GameEngine model) {
         this.model = model;
 
@@ -31,6 +38,11 @@ class KeyboardInputHandler{
         sounds.put("jump", mediaPlayer);
     }
 
+    /**
+     * Handles pressed keys from keyboard input.
+     * Keys consist of the left, right and up arrows.
+     * @param keyEvent
+     */
     void handlePressed(KeyEvent keyEvent) {
         if (pressedKeys.contains(keyEvent.getCode())) {
             return;
@@ -65,6 +77,11 @@ class KeyboardInputHandler{
         }
     }
 
+    /**
+     * Handles released keys from keyboard input.
+     * Keys consist of left, right and up arrows.
+     * @param keyEvent
+     */
     void handleReleased(KeyEvent keyEvent) {
         pressedKeys.remove(keyEvent.getCode());
 

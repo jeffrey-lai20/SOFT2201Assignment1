@@ -5,12 +5,23 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import stickman.model.Entity;
 
+/**
+ * Implements the interface EntityView,
+ * Draws the entity in the game's window and continuously updates
+ * if changes are made. Deletes old entities if a newly positioned
+ * one is added.
+ */
 public class EntityViewImpl implements EntityView {
     private Entity entity;
     private boolean delete = false;
     private ImageView node;
     private String imagePath;
 
+    /**
+     * Constructor for EntityViewImpl. Sets values to the
+     * attributes of an entity.
+     * @param entity
+     */
     EntityViewImpl(Entity entity) {
         this.entity = entity;
         this.imagePath = entity.getImagePath();

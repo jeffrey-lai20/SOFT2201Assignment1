@@ -1,5 +1,11 @@
 package stickman.model;
 
+/**
+ * EntityImpl implements the interface Entity. It provides information for
+ * an entity. These entities can be a hero or a cloud. Details about its
+ * coordinates and size are stored. The visual depiction is also handled
+ * where the appropriate image is set to an entity.
+ */
 public class EntityImpl implements Entity {
     private String entityName;
     private double xPos;
@@ -8,6 +14,13 @@ public class EntityImpl implements Entity {
     private double width;
     private Layer layer;
 
+    /**
+     * Constructor to set initial coordinates and size of the entity.
+     * @param entityName
+     * @param xPos
+     * @param yPos
+     * @param size
+     */
     public EntityImpl (String entityName, double xPos, double yPos, double size) {
         this.entityName = entityName;
         this.xPos = xPos;
@@ -15,11 +28,9 @@ public class EntityImpl implements Entity {
         if (entityName.equals("Hero")) {
             this.height = size;
             this.width = size;
-        } else if (entityName.contains("Cloud")) {
-            this.height = 0;
-            this.width = 0;
         }
     }
+
     @Override
     public String getImagePath() {
          if (entityName.equals("Hero") ) {

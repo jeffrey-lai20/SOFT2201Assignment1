@@ -5,13 +5,24 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.*;
 
+/**
+ * GameEngineImpl implements the interface GameEngine.
+ * It provides the core functionality for the game and initialises it.
+ * Functionality includes movement of the hero and updating the frame
+ * of the game. The game is initalised with input of a JSON file.
+ */
 public class GameEngineImpl implements GameEngine {
-
     private Level currentLevel;
-    private Double xPos;
-    private Double cloudVelocity;
+    private double xPos;
+    private double cloudVelocity;
     private String stickmanSize;
 
+    /**
+     * Constructor to initialise the game, taking in the JSON filename
+     * as a String parameter. Reads the variable information from the
+     * JSON file and starts the level with appropriate values.
+     * @param jsonFile
+     */
     public GameEngineImpl(String jsonFile) {
         JSONParser parser = new JSONParser();
         try {
@@ -19,8 +30,8 @@ public class GameEngineImpl implements GameEngine {
             JSONObject stickman = (JSONObject) arrayObj;
             this.stickmanSize = (String) stickman.get("stickmanSize");
             JSONObject stickmanPos = (JSONObject) stickman.get("stickmanPos");
-            this.xPos = (Double) stickmanPos.get("x");
-            this.cloudVelocity = (Double) stickman.get("cloudVelocity");
+            this.xPos = (double) stickmanPos.get("x");
+            this.cloudVelocity = (double) stickman.get("cloudVelocity");
 
             if (!(stickmanSize.equals("tiny") || stickmanSize.equals("normal") ||
                 stickmanSize.equals("large") || stickmanSize.equals("giant"))) {

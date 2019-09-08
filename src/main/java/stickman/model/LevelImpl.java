@@ -1,12 +1,14 @@
 package stickman.model;
 
-import com.sun.scenario.effect.impl.hw.ShaderSource;
-
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * LevelImpl implements the interface Level. It provides information
+ * about the game's current level, such as where entities are positioned
+ * and where they should be positioned next.
+ */
 public class LevelImpl implements Level {
-
     private double height;
     private double width;
     private double floorHeight;
@@ -21,6 +23,13 @@ public class LevelImpl implements Level {
     private double size;
     private boolean desc;
 
+    /**
+     * Constructor to set initial dimensions and positions
+     * of the level and its entities.
+     * @param heroX
+     * @param cloudVelocity
+     * @param stickmanSize
+     */
     public LevelImpl (double heroX, double cloudVelocity, String stickmanSize) {
         if (stickmanSize.equalsIgnoreCase("tiny")) {
             size = 20;
@@ -77,8 +86,6 @@ public class LevelImpl implements Level {
             cloud1x -= 1;
             cloud2x -= 1;
         }
-        Entity cloud = new EntityImpl("Cloud1", cloud1x, height - 200, size);
-        Entity cloud2 = new EntityImpl("Cloud2", cloud2x, height - 230, size);
         if (left && entities.get(0).getXPos() > 0) {
             heroX -=1;
             if (entities.get(0).getXPos() > 279) {
@@ -109,6 +116,8 @@ public class LevelImpl implements Level {
             }
         }
         hero = new EntityImpl("Hero", heroX, floorHeight-size, size);
+        Entity cloud = new EntityImpl("Cloud1", cloud1x, height - 200, size);
+        Entity cloud2 = new EntityImpl("Cloud2", cloud2x, height - 230, size);
         entities.add(0,hero);
         entities.add(1, cloud);
         entities.add(2, cloud2);

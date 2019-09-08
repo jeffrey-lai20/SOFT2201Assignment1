@@ -11,6 +11,10 @@ import stickman.model.GameEngine;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Draws the game's window as well as its entities. Continously
+ * updates the frame and draws newly position entities.
+ */
 public class GameWindow {
     private final int width;
     private Scene scene;
@@ -22,6 +26,13 @@ public class GameWindow {
     private double xViewportOffset = 0.0;
     private static final double VIEWPORT_MARGIN = 280.0;
 
+    /**
+     * Constructor for GameWindow. Sets the initial values of its
+     * attributes and initialises drawing and intake of keyboard input.
+     * @param model
+     * @param width
+     * @param height
+     */
     public GameWindow(GameEngine model, int width, int height) {
         this.model = model;
         this.pane = new Pane();
@@ -40,10 +51,12 @@ public class GameWindow {
         backgroundDrawer.draw(model, pane);
     }
 
+    /** Returns the scene. */
     public Scene getScene() {
         return this.scene;
     }
 
+    /** Runs the game window at a refresh rate of every 17ms*/
     public void run() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(17),
                 t -> this.draw()));
@@ -52,6 +65,7 @@ public class GameWindow {
         timeline.play();
     }
 
+    /** Draws and updates the game window and all its entities. */
     private void draw() {
         model.tick();
 

@@ -10,8 +10,15 @@ import stickman.view.GameWindow;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * App initialises and starts the game.
+ */
 public class App extends Application {
 
+    /**
+     * Main method for App.
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
